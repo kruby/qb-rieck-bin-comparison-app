@@ -1,4 +1,4 @@
-# qb-rieck-bin-comparison-ap
+# qb-rieck-bin-comparison-app
 Compares quantities from Bin Contents with the Customs Duty Entry List for QB and RIECK locations
 
 From BC you download the quantity files for locations QB and RIECK from both Bin Contents and the Customes Duty Entry List.
