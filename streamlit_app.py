@@ -43,22 +43,15 @@ if customs_file and bin_file and location_filter:
 
     st.dataframe(comparison)
 
-    # Download link
-    output_filename = f"Location_{location_filter}.xlsx"
-    from io import BytesIO
+    # Prepare Excel in memory
+    output = BytesIO()
+    comparison.to_excel(output, index=False, engine='openpyxl')
+    output.seek(0)
 
-# ... (after generating the comparison DataFrame)
-
-# Prepare Excel in memory
-output = BytesIO()
-comparison.to_excel(output, index=False, engine='openpyxl')
-output.seek(0)
-
-# Download button
-st.download_button(
-    label="Download Comparison as Excel",
-    data=output,
-    file_name=f"Location_{location_filter}.xlsx",
-    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-)
-
+    # Download button
+    st.download_button(
+        label="Download Comparison as Excel",
+        data=output,
+        file_name=f"Location_{location_filter}.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
